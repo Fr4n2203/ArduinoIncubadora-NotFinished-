@@ -32,9 +32,9 @@
  
   dht.begin();// inicio de el sensor DHT
   
-  pinMode(bot1, INPUT);
+  pinMode(bot1, INPUT); //botón 1 es entrada
   
-  pinMode(bot2, INPUT);
+  pinMode(bot2, INPUT); //idem con botón 2
 
   up = digitalRead(bot1); //define el aumento como el botón 1
   
@@ -67,7 +67,7 @@
  //-------------------------------------------------------------------------------------------------------------------------------------------------------------------//                                                                             
                                                                               //Funciones//
 
-float controltemp(int aumen,int dismin){
+float controltemp(int aumen,int dismin){ //función que controla el aumento o disminución de la teperatura de trabajo
   
   if(dismin==LOW && aumen==HIGH){ //Si se presiona elpulsador de aumento, la temperatura de trabajo sube
 
@@ -98,6 +98,8 @@ bool celda(float tmp){//controla la celda de peltier
   }
   }
 void pantalla(float temp,float hum){ //imprime los datos de temperatura y humedad medidos
+  Serial.print("Temp.Trabajo:");
+  Serial.print(Tempmax);
   Serial.print("Temperatura: ");
   Serial.print(temp);
   Serial.print(" °C ");
